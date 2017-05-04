@@ -1,0 +1,25 @@
+.navbar {
+	margin: 0;
+	padding: 0;
+	border: none;
+	min-height: 50px;
+	background: #3A8EFE;
+	height: 50px;
+}
+
+/* .navbar-default .navbar-brand {
+	color: white;
+	font-size: 24px;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: white;
+	font-size: 24px;
+} */
+.navbar-header img{
+	margin-top:10px;
+}
+.navbar-right li a {
+	font-size: 18px;
+	margin:-50px 0 0 250px;
+}

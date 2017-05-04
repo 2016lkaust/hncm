@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.purvar.demo.dao.CompanyDao">
+	<!-- 获取所有企业信息 -->
+	<!-- <select id="getAllCompany" parameterType="pageObject" resultType="company"> 
+		select *, t.name tname from _company c left join _type t on c.tid=t.id </select> -->
+	<!-- company的拓展类 -->
+	<select id="getCompanies" parameterType="pageObject" resultType="company">
+		select c.id, c.name, corporation,tel, registeredcaptial,
+		registeredtime, t.name tname from _company c left join _type t on
+		c.tid=t.id order by c.id
+	</select>
+	<!-- 根据公司id获取公司信息 -->
+	<select id="getCompany" parameterType="_int" resultType="company">
+		select
+		*, t.name tname from _company c left join _type t on c.tid=t.id where
+		c.id=#{id} order by c.id
+	</select>
+	<!-- <select id="getAllCompany" parameterType="pageObject" resultType="company"> 
+		select c.id, c.name, corporation,tel, registeredcaptial, registeredtime, 
+		address, scope, aid, tid, t.name tname from _company c left join _type t 
+		on c.tid=t.id </select> -->
+	<!-- 统计公司总数 -->
+	<select id="totalNum" resultType="_int">
+		select count(id) from _company
+	</select>
+	<!-- 统计所有公司注册资金和 -->
+	<select id="totalMoney" resultType="float">
+		select sum(registeredcaptial)
+		from _company
+	</select>
+	<!-- 分组统计各地区公司数量,以count和name为键，查询到的内容为值 -->
+	<select id="groupByAid" resultType="hashmap">
+		select count(aid),a.name from
+		_company c join _area a on c.aid=a.id group by
+		a.id
+	</select>
+	<!-- 分组统计各个资金范围内的企业数，以count和level为键，以查询内容为值 -->
+	<select id="groupByMoney" resultType="hashmap">
+		select count(*) as count,level from(
+		select
+		(case
+		<![CDATA[when registeredcaptial < 1000000 then 'LEVEL1'
+		when
+		registeredcaptial>=1000000 and registeredcaptial<2000000 then 'LEVEL2'
+		when registeredcaptial>=2000000 and registeredcaptial<3000000 then
+		'LEVEL3'
+		when registeredcaptial>=3000000 then 'LEVEL4'
+		end ]]>)
+		as level from
+		_company ) a
+		group by level
+	</select>
+	<!-- 分组统计每个月注册的企业数，以count和time为键，以查询内容为值 -->
+	<select id="groupByMonth" resultType="hashmap">
+		select count(id),substr(registeredtime,0,8) as time from _company group by time order by time
+	</select>
+</mapper>

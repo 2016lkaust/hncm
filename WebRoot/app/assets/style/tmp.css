@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+#total-number,#total-money {
+	border: 1px solid #CCCCCC;
+	width: 40%;
+	height: 15%;
+	display: inline-block;
+}
+
+#temp1 .info1 {
+	margin: 50px 0 0 -15px;
+}
+
+#temp1 .info2 {
+	margin-top: 50px;
+	left: -25px;
+}
+
+#title button {
+	margin-left: 30px; width : 120px;
+	letter-spacing: 5px;
+	font-weight: bold;
+	background: #33CC00;
+	color: white;
+	background: #33CC00;
+	width: 120px;
+}
