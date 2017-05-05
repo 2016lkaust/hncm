@@ -1,7 +1,7 @@
 package com.purvar.demo.model;
 
 public class Company {
-	private Integer id;
+	private String id;
 
 	private String name;
 
@@ -9,37 +9,38 @@ public class Company {
 
 	private String tel;
 
-	private Double registeredCaptial;
+	private float registeredCaptial;
 
 	private String registeredTime;
 
 	private String address;
 
-	private Integer aid;
+	private String aid;
 
-	private Integer tid;
+	private String tid;
 
 	private String scope;
-//	private String tname;
-//
-//	public String getTname() {
-//		return tname;
-//	}
-//
-//	public void setTname(String tname) {
-//		this.tname = tname;
-//	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	// private String tname;
+	//
+	// public String getTname() {
+	// return tname;
+	// }
+	//
+	// public void setTname(String tname) {
+	// this.tname = tname;
+	// }
 
 	public String getName() {
 		return name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {
@@ -62,11 +63,11 @@ public class Company {
 		this.tel = tel == null ? null : tel.trim();
 	}
 
-	public Double getRegisteredCaptial() {
+	public float getRegisteredCaptial() {
 		return registeredCaptial;
 	}
 
-	public void setRegisteredCaptial(Double registeredCaptial) {
+	public void setRegisteredCaptial(Float registeredCaptial) {
 		this.registeredCaptial = registeredCaptial;
 	}
 
@@ -87,19 +88,19 @@ public class Company {
 		this.address = address == null ? null : address.trim();
 	}
 
-	public Integer getAid() {
+	public String getAid() {
 		return aid;
 	}
 
-	public void setAid(Integer aid) {
+	public void setAid(String aid) {
 		this.aid = aid;
 	}
 
-	public Integer getTid() {
+	public String getTid() {
 		return tid;
 	}
 
-	public void setTid(Integer tid) {
+	public void setTid(String tid) {
 		this.tid = tid;
 	}
 

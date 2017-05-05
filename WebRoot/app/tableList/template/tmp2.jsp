@@ -5,7 +5,7 @@
 	href="/hncm/app/assets/style/tmp.css" />
 <script type="text/javascript"
 	src="/hncm/app/tableList/template/tmp2.js"></script>
-<h1 id="title">注册企业界面<button class="btn btn-sm" data-toggle="modal" data-target="#myModal">+&nbsp;新增</button></h1>
+<h1 id="title">注册企业界面<button class="btn btn-sm" data-toggle="modal" id="add">+&nbsp;新增</button></h1>
 <div class="list-table" id="detailDiv">
 	<table class="table table-hover table-bordered" id="detailTab">
 	</table>
@@ -66,7 +66,7 @@
 				</div>
 				<div class="modal-footer center-block">
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary">确定</button>
+					<button type="button" class="btn btn-primary" id="submit">确定</button>
 				</div>
 			</div>
 			<!-- /.modal-content -->

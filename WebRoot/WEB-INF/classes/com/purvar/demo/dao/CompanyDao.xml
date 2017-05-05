@@ -8,7 +8,7 @@
 	<select id="getCompanies" parameterType="pageObject" resultType="company">
 		select c.id, c.name, corporation,tel, registeredcaptial,
 		registeredtime, t.name tname from _company c left join _type t on
-		c.tid=t.id order by c.id
+		c.tid=t.id order by c.id  limit #{pageSize} offset #{page}
 	</select>
 	<!-- 根据公司id获取公司信息 -->
 	<select id="getCompany" parameterType="_int" resultType="company">

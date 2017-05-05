@@ -10,6 +10,7 @@ refreshOrderTable();
 function refreshOrderTable() {
 	var perpage = $('.perpage').val();
 	refreshTablePage("1", perpage);
+	console.log("perpage:" + perpage);
 }
 // 翻页刷新
 function refreshForPageChange() {
@@ -27,7 +28,7 @@ function refreshTablePage(refreshPage, pageSize) {
 		"page" : curPage,
 		"rows" : pageSize
 	}, function(data) {
-//		console.log(data);
+		// console.log(data);
 		queryOrderCallBack(data);
 		if (refreshPage == "1") {
 			initPageNum(total_num, pageSize);
@@ -78,13 +79,13 @@ function dealPage(tableHtml, data) {
  * 点击列表中的“查看”弹出模态框，从后台获取公司信息填充到模态框中
  */
 function more(id) {
-//	console.log(id);
-	var url = "/hncm/user/company_getCompany.action";
+	// console.log(id);
+	var url = "/hncm/user/company_getCompanyInfo.action";
 	ajaxPost(url, {
 		cid : id
 	}, function(data) {
-//		console.log(data);
-		var show=data.data;
+		// console.log(data);
+		var show = data.data;
 		$("#id").html(show.id);
 		$("#name").val(show.name);
 		$("#corporation").val(show.corporation);
@@ -104,12 +105,14 @@ function more(id) {
 function getTypes() {
 	var url = '/hncm/user/company_getTypes.action';
 	ajaxPost(url, {
-		
+
 	}, function(data) {
-//		console.log(data);
-		var len=data.data.length;
-		for(var i=0;i<len;i++){
-			$("#type").append("<option>"+data.data[i].name+"</option>");
+		 console.log(data);
+		var len = data.data.length;
+		$("#type").empty();
+		for ( var i = 0; i < len; i++) {
+			//将地区名做下拉选项，将地区id做下拉选项的value
+			$("#type").append("<option value="+data.data[i].id+">" + data.data[i].name + "</option>");
 		}
 	});
 }
@@ -119,15 +122,18 @@ function getTypes() {
  */
 function getCities() {
 	var url2 = '/hncm/user/company_getCities.action';
-	ajaxPost(url2, {
-	}, function(data) {
-// console.log(data);
-		var len=data.data.length;
+	ajaxPost(url2, {}, function(data) {
+		// console.log(data);
+		var len = data.data.length;
+		$("#city").empty();
 		for ( var i = 0; i < len; i++) {
-			$("#city").append("<option value="+data.data[i].id+">"+data.data[i].name+"</option>");
+			//将城市名做下拉选项，将城市id做下拉选项的value
+			$("#city").append(
+					"<option value=" + data.data[i].id + ">"
+							+ data.data[i].name + "</option>");
 		}
 		cascading();
-		$("#city").change(function(){
+		$("#city").change(function() {
 			cascading();
 		});
 	});
@@ -135,27 +141,57 @@ function getCities() {
 /**
  * 级联菜单
  */
-function cascading(){
-	var cid=$("#city option:selected").attr("value");
-//	console.log(cid);
+function cascading() {
+	var cid = $("#city option:selected").attr("value");
+	// console.log(cid);
 	getAreasByCid(cid);
 }
 /**
  * 通过城市id获取其对应的地区名，实现级联选项
+ * 
  * @param cid
  */
 function getAreasByCid(cid) {
 	var url = '/hncm/user/company_getAreasByCid.action';
-	ajaxPost(url, 
-			{ cid:cid }, 
-			function(data) { 
-//				console.log(data); 
-				var len=data.data.length; 
-				$("#area").empty();
-				for(var i=0;i<len;i++){ 
-					$("#area").append("<option>"+data.data[i].name+"</option>"); 
-				}
+	ajaxPost(url, {
+		cid : cid
+	}, function(data) {
+		// console.log(data);
+		var len = data.data.length;
+		$("#area").empty();
+		for ( var i = 0; i < len; i++) {
+			//将地区名做下拉选项，将地区id做下拉选项的value
+			$("#area").append("<option value=" + data.data[i].id + ">" + data.data[i].name + "</option>");
+		}
 	});
-	
+
 }
-//*******************************************处理添加按钮的相应事件******************************************
+// *******************************************处理添加按钮的相应事件******************************************
+$("#add").click(function() {
+	$('#myModal').modal('show');
+	getTypes();
+	getCities();
+	$("#myModal input").val("");
+	$("#myModal textarea").val("");
+	$("#id").html("<input type='text'/>");
+	$("#submit").click(function(){
+		var toAdd = '/hncm/user/company_addCompany.action';
+		console.log($("#type").find("option:selected").attr("value"));
+		console.log($("#area").find("option:selected").attr("value"));
+		console.log($("#city").find("option:selected").attr("value"));
+		ajaxPost(toAdd, {
+			"company.id":$("#id").html(),
+			"company.name":$("#name").val(),
+			"company.corporation":$("#corporation").val(),
+			"company.tel":$("#tel").val(),
+			"company.registeredcaptial":$("#captial").val(),
+			"company.registeredtime":$("#time").val(),
+			"company.address":$("#address").val(),
+			"company.scope":$("#scope").val(),
+			"company.tid":$("#type").find("option:selected").attr("value"),
+			"company.aid":$("#area").find("option:selected").attr("value"),
+		}, function(data) {
+//			
+		});
+	});
+});

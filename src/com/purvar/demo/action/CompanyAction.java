@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import com.purvar.demo.action.base.BaseAction;
 import com.purvar.demo.model.Area;
 import com.purvar.demo.model.City;
+import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
 import com.purvar.demo.model.PageObject;
 import com.purvar.demo.model.Type;
@@ -32,6 +33,11 @@ public class CompanyAction extends BaseAction {
 	@Autowired
 	private TypeService typeService;
 	private Integer cid;
+	private Company company;
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
 
 	public Integer getCid() {
 		return cid;
@@ -87,15 +93,15 @@ public class CompanyAction extends BaseAction {
 	 * 
 	 * @throws Exception
 	 */
-	public void getCompany() throws Exception {
+	public void getCompanyInfo() throws Exception {
 		Map<String, Object> respMap = new HashMap<String, Object>();
 		try {
 			System.out.println(cid);
-			Company1 company = this.companyService.getCompany(cid);
-			System.out.println(company);
+			Company1 company1 = this.companyService.getCompany(cid);
+			System.out.println("company1"+company1);
 			respMap.put("status", "1");
 			respMap.put("message", "获得成功！");
-			respMap.put("data", company);
+			respMap.put("data", company1);
 		} catch (Exception e) {
 			e.printStackTrace();
 			respMap.put("status", "0");
@@ -167,28 +173,31 @@ public class CompanyAction extends BaseAction {
 		}
 		writeJSON(respMap);
 	}
-/**
- * 统计注册企业总数和总资产数
- * @throws Exception
- */
-	public void count() throws Exception{
+
+	/**
+	 * 统计注册企业总数和总资产数
+	 * 
+	 * @throws Exception
+	 */
+	public void count() throws Exception {
 		Map<String, Object> respMap = new HashMap<String, Object>();
 		try {
-			int totalnum=companyService.count();
-			float totalmoney=companyService.countMoney();
-			List<Map<String, Object>> location=companyService.groupByLocation();
-			List<Map<String, Object>> fund=companyService.groupByFund();
-			List<Map<String, Object>> month=companyService.groupByMonth();
-			System.out.println("size"+month.size());
-			System.out.println("list"+month);
-			System.out.println("map"+month.get(0));
+			int totalnum = companyService.count();
+			float totalmoney = companyService.countMoney();
+			List<Map<String, Object>> location = companyService
+					.groupByLocation();
+			List<Map<String, Object>> fund = companyService.groupByFund();
+			List<Map<String, Object>> month = companyService.groupByMonth();
+			System.out.println("size" + month.size());
+			System.out.println("list" + month);
+			System.out.println("map" + month.get(0));
 			for (Map<String, Object> map : month) {
-				System.out.println(map.get("count")+"****"+map.get("time"));
+				System.out.println(map.get("count") + "****" + map.get("time"));
 			}
 			// for (Area area : areas) {
 			// System.out.println(area.getName());
 			// }
-//			System.out.println(totalmoney+" *************************** "+totalnum);
+			// System.out.println(totalmoney+" *************************** "+totalnum);
 			respMap.put("status", "1");
 			respMap.put("message", "获得成功！");
 			respMap.put("totalnum", totalnum);
@@ -203,5 +212,11 @@ public class CompanyAction extends BaseAction {
 		}
 		writeJSON(respMap);
 	}
-	
+/**
+ * 添加公司信息
+ * @throws Exception
+ */
+	public void addCompany() throws Exception {
+		System.out.println(company.getId()+company.getAid()+company.getTid()+company.getName());
+	}
 }

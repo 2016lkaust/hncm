@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
+import com.purvar.demo.model.PageObject;
 
 /**
  * 
@@ -28,7 +29,7 @@ public interface CompanyDao {
 	 * 
 	 * @return
 	 */
-	List<Company1> getCompanies();
+	List<Company1> getCompanies(PageObject pageObj);
 	/**
 	 * 根据id获取某个公司的信息
 	 * @param id
