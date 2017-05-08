@@ -65,5 +65,20 @@ public class CompanyServiceImpl implements CompanyService {
 	public List<Map<String, Object>> groupByMonth() {
 		return companyDao.groupByMonth();
 	}
+
+	@Override
+	public int addCompany(Company1 company) {
+		return companyDao.addCompany(company);
+	}
+
+	@Override
+	public int deleteCompany(int id) {
+		return companyDao.deleteCompanyById(id);
+	}
+
+	@Override
+	public int updateCompany(Company1 company) {
+		return companyDao.updateCompanyById(company);
+	}
 	
 }

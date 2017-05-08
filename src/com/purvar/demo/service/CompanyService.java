@@ -69,4 +69,20 @@ public interface CompanyService {
 	 */
 	List<Map<String, Object>> groupByMonth();
 
+	/**
+	 * 插入公司信息
+	 * 
+	 * @param company
+	 * @return 
+	 */
+	int addCompany(Company1 company);
+
+	/**
+	 * 删除公司信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	int deleteCompany(int id);
+	int updateCompany(Company1 company);
 }

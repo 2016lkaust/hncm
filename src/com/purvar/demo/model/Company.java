@@ -1,7 +1,7 @@
 package com.purvar.demo.model;
 
 public class Company {
-	private String id;
+	private Integer id;
 
 	private String name;
 
@@ -15,9 +15,9 @@ public class Company {
 
 	private String address;
 
-	private String aid;
+	private Integer aid;
 
-	private String tid;
+	private Integer tid;
 
 	private String scope;
 
@@ -35,11 +35,19 @@ public class Company {
 		return name;
 	}
 
-	public String getId() {
+	public float getRegisteredCaptial() {
+		return registeredCaptial;
+	}
+
+	public void setRegisteredCaptial(float registeredCaptial) {
+		this.registeredCaptial = registeredCaptial;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -63,13 +71,6 @@ public class Company {
 		this.tel = tel == null ? null : tel.trim();
 	}
 
-	public float getRegisteredCaptial() {
-		return registeredCaptial;
-	}
-
-	public void setRegisteredCaptial(Float registeredCaptial) {
-		this.registeredCaptial = registeredCaptial;
-	}
 
 	public String getRegisteredTime() {
 		return registeredTime;
@@ -88,19 +89,19 @@ public class Company {
 		this.address = address == null ? null : address.trim();
 	}
 
-	public String getAid() {
+	public Integer getAid() {
 		return aid;
 	}
 
-	public void setAid(String aid) {
+	public void setAid(Integer aid) {
 		this.aid = aid;
 	}
 
-	public String getTid() {
+	public Integer getTid() {
 		return tid;
 	}
 
-	public void setTid(String tid) {
+	public void setTid(Integer tid) {
 		this.tid = tid;
 	}
 

@@ -8,7 +8,7 @@
 	<select id="getCompanies" parameterType="pageObject" resultType="company">
 		select c.id, c.name, corporation,tel, registeredcaptial,
 		registeredtime, t.name tname from _company c left join _type t on
-		c.tid=t.id order by c.id  limit #{pageSize} offset #{page}
+		c.tid=t.id order by c.id limit #{pageSize} offset #{page}
 	</select>
 	<!-- 根据公司id获取公司信息 -->
 	<select id="getCompany" parameterType="_int" resultType="company">
@@ -53,6 +53,24 @@
 	</select>
 	<!-- 分组统计每个月注册的企业数，以count和time为键，以查询内容为值 -->
 	<select id="groupByMonth" resultType="hashmap">
-		select count(id),substr(registeredtime,0,8) as time from _company group by time order by time
+		select
+		count(id),substr(registeredtime,0,8) as time from _company group by
+		time order by time
 	</select>
+	<!-- 添加公司信息 -->
+<insert id="addCompany" parameterType="company" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO _company( "name", "corporation", "tel", "registeredcaptial",
+		"address", "scope", "cid","aid", "tid", "registeredtime")
+		VALUES
+		(#{name},#{corporation},#{tel},#{registeredCaptial},#{address},#{scope},#{cid},#{aid},#{tid},#{registeredTime})
+	</insert>
+	<!-- 删除公司信息 -->
+	<delete id="deleteCompanyById"  parameterType="int" >
+		delete from _company where id=#{id}
+	</delete>
+	<!-- 修改公司信息 -->
+	<update id="updateCompanyById" parameterType="company">
+	update _company set "name"=#{name},"corporation"=#{corporation},"tel"=#{tel}, "registeredcaptial"=#{registeredCaptial},
+		"address"=#{address}, "scope"=#{scope}, "aid"=#{aid}, "tid"=#{tid}, "registeredtime"=#{registeredTime}, "cid"=#{cid} where id=#{id}
+	</update>
 </mapper>

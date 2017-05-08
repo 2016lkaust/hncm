@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.mysql.jdbc.Field;
 import com.purvar.demo.action.base.BaseAction;
 import com.purvar.demo.model.Area;
 import com.purvar.demo.model.City;
@@ -33,10 +34,14 @@ public class CompanyAction extends BaseAction {
 	@Autowired
 	private TypeService typeService;
 	private Integer cid;
-	private Company company;
+	Company1 company;
 
-	public void setCompany(Company company) {
+	public void setCompany(Company1 company) {
 		this.company = company;
+	}
+
+	public Company1 getCompany() {
+		return company;
 	}
 
 	public Integer getCid() {
@@ -61,10 +66,11 @@ public class CompanyAction extends BaseAction {
 				page = "1";
 			if (pageSize == null || "".equals(pageSize))
 				pageSize = "10";
-
+			int page1 = Integer.parseInt(page);
+			int pageSize1 = Integer.parseInt(pageSize);
 			PageObject pageObj = new PageObject();
-			pageObj.setPage(Integer.parseInt(page) - 1);
-			pageObj.setPageSize(Integer.parseInt(pageSize));
+			pageObj.setPage((page1 - 1) * pageSize1);
+			pageObj.setPageSize(pageSize1);
 			// 查询订单详情信息
 			List<Company1> companies = this.companyService
 					.selectCompanyList(pageObj);
@@ -76,10 +82,11 @@ public class CompanyAction extends BaseAction {
 			// System.out.println(companies.get(i).getRegisteredTime());
 			// System.out.println(companies.get(i).getTname());
 			// }
+			int totalnum = companyService.count();
 			respMap.put("status", "1");
 			respMap.put("message", "获得成功！");
 			respMap.put("data", companies);
-
+			respMap.put("totalnum", totalnum);
 		} catch (Exception e) {
 			e.printStackTrace();
 			respMap.put("status", "0");
@@ -98,7 +105,6 @@ public class CompanyAction extends BaseAction {
 		try {
 			System.out.println(cid);
 			Company1 company1 = this.companyService.getCompany(cid);
-			System.out.println("company1"+company1);
 			respMap.put("status", "1");
 			respMap.put("message", "获得成功！");
 			respMap.put("data", company1);
@@ -188,12 +194,12 @@ public class CompanyAction extends BaseAction {
 					.groupByLocation();
 			List<Map<String, Object>> fund = companyService.groupByFund();
 			List<Map<String, Object>> month = companyService.groupByMonth();
-			System.out.println("size" + month.size());
-			System.out.println("list" + month);
-			System.out.println("map" + month.get(0));
-			for (Map<String, Object> map : month) {
-				System.out.println(map.get("count") + "****" + map.get("time"));
-			}
+			// System.out.println("size" + month.size());
+			// System.out.println("list" + month);
+			// System.out.println("map" + month.get(0));
+//			for (Map<String, Object> map : month) {
+//				System.out.println(map.get("count") + "****" + map.get("time"));
+//			}
 			// for (Area area : areas) {
 			// System.out.println(area.getName());
 			// }
@@ -212,11 +218,60 @@ public class CompanyAction extends BaseAction {
 		}
 		writeJSON(respMap);
 	}
+
+	/**
+	 * 添加公司信息
+	 * 
+	 * @throws Exception
+	 */
+	public void addCompany() throws Exception {
+		Map<String, Object> respMap = new HashMap<String, Object>();
+		try {
+			int result = companyService.addCompany(company);
+			respMap.put("status", "1");
+			respMap.put("message", "数据插入成功！");
+			System.out.println(result);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			respMap.put("status", "0");
+			respMap.put("message", "数据插入失败！");
+		}
+		writeJSON(respMap);
+	}
 /**
- * 添加公司信息
+ * 删除公司信息
  * @throws Exception
  */
-	public void addCompany() throws Exception {
-		System.out.println(company.getId()+company.getAid()+company.getTid()+company.getName());
+	public void deleteCompany() throws Exception {
+		Map<String, Object> respMap = new HashMap<String, Object>();
+		try {
+			int result = companyService.deleteCompany(company.getId());
+			respMap.put("status", "1");
+			respMap.put("message", "数据删除成功！");
+			System.out.println(result);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			respMap.put("status", "0");
+			respMap.put("message", "数据删除失败！");
+		}
+		writeJSON(respMap);
+	}
+	public void updateCompany() throws Exception{
+		Map<String, Object> respMap = new HashMap<String, Object>();
+		try {
+			System.out.println(company.getAddress()+company.getTid());
+			int result = companyService.updateCompany(company);
+			respMap.put("status", "1");
+			respMap.put("message", "数据更新成功！");
+			System.out.println(result);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			respMap.put("status", "0");
+			respMap.put("message", "数据更新失败！");
+		}
+		writeJSON(respMap);
 	}
 }

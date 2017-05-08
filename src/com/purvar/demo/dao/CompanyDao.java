@@ -61,4 +61,22 @@ public interface CompanyDao {
 	 * @return
 	 */
 	List<Map<String, Object>> groupByMonth();
+	/**
+	 * 插入公司信息
+	 * @param company
+	 * @return
+	 */
+	int addCompany(Company1 company);
+	/**
+	 * 删除公司信息
+	 * @param id
+	 * @return
+	 */
+	int deleteCompanyById(int id);
+	/**
+	 * 更新公司信息
+	 * @param id
+	 * @return
+	 */
+	int updateCompanyById(Company1 company);
 }

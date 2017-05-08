@@ -1,12 +1,14 @@
 @CHARSET "UTF-8";
 
-#total-number,#total-money {
+#temp1 #total-number,#total-money {
 	border: 1px solid #CCCCCC;
 	width: 40%;
 	height: 15%;
 	display: inline-block;
 }
-
+#temp1 #total-number{
+	
+}
 #temp1 .info1 {
 	margin: 50px 0 0 -15px;
 }

@@ -5,7 +5,10 @@
 	href="/hncm/app/assets/style/tmp.css" />
 <script type="text/javascript"
 	src="/hncm/app/tableList/template/tmp2.js"></script>
-<h1 id="title">注册企业界面<button class="btn btn-sm" data-toggle="modal" id="add">+&nbsp;新增</button></h1>
+<h1 id="title">
+	注册企业界面
+	<button class="btn btn-sm" data-toggle="modal" id="add">+&nbsp;新增</button>
+</h1>
 <div class="list-table" id="detailDiv">
 	<table class="table table-hover table-bordered" id="detailTab">
 	</table>
@@ -24,7 +27,7 @@
 		</div>
 		<div class="fanye pull-right" id="pageCtr1"></div>
 	</div>
-	<!-- 模态框（Modal） -->
+	<!-- 点击查看模态框 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -53,10 +56,9 @@
 							type="text" id="time" />
 					</div>
 					<div style="margin-top:20px;">
-						<label>经营地址：</label>
-						<select id="city"></select>
-						<select id="area" style="margin:0 10px;"></select>
-						<input type="text" value="朝阳中路瑞鑫大厦办公602" id="address"/>
+						<label>经营地址：</label> <select id="city"></select> <select id="area"
+							style="margin:0 10px;"></select> <input type="text"
+							value="朝阳中路瑞鑫大厦办公602" id="address" />
 					</div>
 					<div style="margin-top:20px;">
 						<label for="scope" class="pull-left">经营范围：</label>
@@ -73,3 +75,7 @@
 		</div>
 		<!-- /.modal -->
 	</div>
+	<div id="myAlert" class="alert alert-success" hidden>
+		<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>操作成功！</strong>
+	</div>
+</div>
