@@ -90,15 +90,19 @@ public class UserAction extends BaseAction {
 				page = "1";
 			if (pageSize == null || "".equals(pageSize))
 				pageSize = "10";
-
+			int page1 = Integer.parseInt(page);
+			int pageSize1 = Integer.parseInt(pageSize);
 			PageObject pageObj = new PageObject();
-			pageObj.setPage(Integer.parseInt(page)-1);
-			pageObj.setPageSize(Integer.parseInt(pageSize));
+			//page：总偏移量，pageSize：每页显示记录数
+			pageObj.setPage((page1 - 1) * pageSize1);
+			pageObj.setPageSize(pageSize1);
 			// 查询订单详情信息
 			List<User> userList = this.userService.getUserList(pageObj);
+			int count=this.userService.countUser();
 			respMap.put("status", "1");
 			respMap.put("message", "获得成功！");
 			respMap.put("data", userList);
+			respMap.put("count", count);
 
 		} catch (Exception e) {
 			e.printStackTrace();

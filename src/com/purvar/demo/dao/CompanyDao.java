@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
 import com.purvar.demo.model.PageObject;
+import com.purvar.demo.model.base.BaseCompany;
 
 /**
  * 

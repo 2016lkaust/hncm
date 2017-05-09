@@ -1,13 +1,34 @@
 @CHARSET "UTF-8";
-
+/* temp1 */
 #temp1 #total-number,#total-money {
 	border: 1px solid #CCCCCC;
 	width: 40%;
-	height: 15%;
+	height: 12%;
 	display: inline-block;
+	font-size:1.3em;
+	color:white;
+	font-weight:bold;
 }
-#temp1 #total-number{
-	
+#total-number{
+	background-color:#3a8eff;
+}
+#total-money{
+	background-color:#48de63;
+}
+#temp1 .tip{
+	display:inline-block;
+	margin:5% 0 0 5%;
+}
+#temp1 .num-wrap{
+	display:inline-block;
+	margin:5% 0 0 35%;
+}
+
+#temp1 .figure{
+	font-size:1.6em;
+}
+#total-number img{
+	margin-left:5%;
 }
 #temp1 .info1 {
 	margin: 50px 0 0 -15px;
@@ -17,7 +38,22 @@
 	margin-top: 50px;
 	left: -25px;
 }
+#temp1 .heading{
+	text-indent:1em;
+	background-color:white;
+	font-size:14px;
+	color:#666666;
+}
+#temp1 .line{
+	width:100%;
+}
 
+
+
+
+
+
+/* temp2 */
 #title button {
 	margin-left: 30px; width : 120px;
 	letter-spacing: 5px;
@@ -26,4 +62,24 @@
 	color: white;
 	background: #33CC00;
 	width: 120px;
+}
+/* temp4 */
+#temp4 #user-group span{
+	display:inline-block;
+	margin-top:2%;
+}
+#temp4 .uid{
+	color:#64A5FF;
+}
+#temp4 .col-md-3{
+	width:22%;
+	margin-right:2%;
+}
+.my-normal{
+	color:#007804;
+	font-weight:bold;
+}
+.my-disabled{
+	color:red;
+	font-weight:bold;
 }

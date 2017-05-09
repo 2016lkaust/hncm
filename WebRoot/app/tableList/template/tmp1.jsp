@@ -10,21 +10,24 @@
 <h1>首页</h1>
 <div class="col-md-12" id="temp1">
 	<div id="total-number" class="col-md-5">
-		注册企业数<span class="pull-right"><span id="number">1000</span>家</span>
+		<span class="tip">注册企业数</span><span class="num-wrap"><span id="number" class="figure">1000</span>&nbsp;&nbsp;家</span><img src="/hncm/app/assets/images/total-num.png">
 	</div>
 	<div id="total-money" class="col-md-5 col-md-offset-1">
-		注册总资金<span class="pull-right"><span id="money">21.12</span>亿元</span>
+		<span class="tip">注册总资金</span><span class="num-wrap"><span id="money" class="figure">21.12</span>&nbsp;&nbsp;亿元</span><img src="/hncm/app/assets/images/total-num.png">
 	</div>
 	<div class="col-md-5 info1">
 		<div class="panel panel-default">
-			<div class="panel-heading">淮南市注册企业分布情况</div>
+			<h1 class="heading">淮南市注册企业分布情况</h1>
+			<img src="/hncm/app/assets/images/line.png" class="line">
 			<div class="panel-body" id="location" style="width: 600px;height:400px;">面板内容</div>
 		</div>
 	</div>
 	<div class="col-md-5 col-md-offset-1 info2">
 		<div class="panel panel-default">
-			<div class="panel-heading">淮南市注册资金分布</div>
-			<div class="panel-body" id="fund" style="width: 600px;height:400px;">面板内容</div>
+			<h1 class="heading">淮南市注册资金分布</h1>
+			<img src="/hncm/app/assets/images/line.png" class="line">
+			<div class="panel-body" id="fund" style="width: 600px;height:400px;">
+			面板内容</div>
 		</div>
 	</div>
 </div>

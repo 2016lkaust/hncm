@@ -28,5 +28,10 @@ public interface UserService {
 	 * @return
 	 */
 	List<User> getUserList(PageObject pageObj);
+	/**
+	 * 统计所有用户数
+	 * @return
+	 */
+	int countUser();
 
 }

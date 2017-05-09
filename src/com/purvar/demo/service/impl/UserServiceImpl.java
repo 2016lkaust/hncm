@@ -56,8 +56,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getUserList(PageObject pageObj) {
-		// TODO Auto-generated method stub
 		return userDao.getAllUser(pageObj);
+	}
+
+	@Override
+	public int countUser() {
+		return userDao.count();
 	}
 
 }

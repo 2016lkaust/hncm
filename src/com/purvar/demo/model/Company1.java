@@ -1,6 +1,8 @@
 package com.purvar.demo.model;
 
-public class Company1 extends Company {
+import com.purvar.demo.model.base.BaseCompany;
+
+public class Company1 extends BaseCompany {
 	private String tname;
 	private String cname;
 	private Integer cid;

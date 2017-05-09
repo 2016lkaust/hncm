@@ -40,12 +40,12 @@
 		select count(*) as count,level from(
 		select
 		(case
-		<![CDATA[when registeredcaptial < 1000000 then 'LEVEL1'
+		<![CDATA[when registeredcaptial < 10000000 then '0.1亿元以下'
 		when
-		registeredcaptial>=1000000 and registeredcaptial<2000000 then 'LEVEL2'
-		when registeredcaptial>=2000000 and registeredcaptial<3000000 then
-		'LEVEL3'
-		when registeredcaptial>=3000000 then 'LEVEL4'
+		registeredcaptial>=10000000 and registeredcaptial<50000000 then '0.1-0.5亿元'
+		when registeredcaptial>=50000000 and registeredcaptial<100000000 then
+		'0.5-1亿元'
+		when registeredcaptial>=100000000 then '一亿元以上'
 		end ]]>)
 		as level from
 		_company ) a

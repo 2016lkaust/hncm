@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.purvar.demo.dao.CompanyDao;
-import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
 import com.purvar.demo.model.PageObject;
+import com.purvar.demo.model.base.BaseCompany;
 import com.purvar.demo.service.CompanyService;
 
 @Service("companyService")

@@ -3,9 +3,9 @@ package com.purvar.demo.service;
 import java.util.List;
 import java.util.Map;
 
-import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
 import com.purvar.demo.model.PageObject;
+import com.purvar.demo.model.base.BaseCompany;
 
 public interface CompanyService {
 	/**

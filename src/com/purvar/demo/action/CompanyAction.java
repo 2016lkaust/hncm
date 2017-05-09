@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.mysql.jdbc.Field;
 import com.purvar.demo.action.base.BaseAction;
 import com.purvar.demo.model.Area;
 import com.purvar.demo.model.City;
-import com.purvar.demo.model.Company;
 import com.purvar.demo.model.Company1;
 import com.purvar.demo.model.PageObject;
 import com.purvar.demo.model.Type;
