@@ -21,37 +21,26 @@
 <meta http-equiv="description" content="This is my page">
 <%@ include file="/app/common/jsp/common-head.jsp"%>
 <link type="text/css" rel="stylesheet"
-	href="/hncm/app/assets/style/login.css" />
+	href="/hncm/app/assets/style/mylogin.css" />
 <script type="text/javascript" src="/hncm/app/login/login.js"></script>
 </head>
 
-<body class="login-page-open">
-	<div class="container-fluid login-page">
-		<div class="login-main-content">
-			<div class="col-md-4 col-md-offset-4 login-panel">
-				<h3 class="text-center">用户登录</h3>
-				<form>
-					<div class="form-group">
-						<label for="account">用户名</label> <input type="text"
-							class="form-control" id="account" placeholder="请输入用户名">
-					</div>
-					<div class="form-group">
-						<label for="password">密码</label> <input type="password"
-							class="form-control" id="password" placeholder="请输入密码">
-					</div>
-					<div class="form-group text-center">
-						<button type="submit"
-							class="btn btn-success login-button btn-block"
-							onclick="loginClick(event)">登录</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- <s:form action="user_Login">
-  		<s:textfield name="account" label="Username" />
-  		<s:password name="password" label="Password" />
-  		<s:submit />
-  	</s:form> -->
+<body>
+	<div id="loginWrap">
+    <div id="head"><h1>淮南市企业信息管理</h1></div>
+    <div id="body">
+        <div id="img">
+            <img src="/hncm/app/assets/images/left.png"/>
+        </div>
+        <div id="box">
+                <h1>管理登录</h1>
+                <img src="/hncm/app/assets/images/user.png" id="user-icn"><img src="/hncm/app/assets/images/password.png" id="pw-icn">
+                <input type="text" placeholder="请输入用户名" name="user.name"  id="account" />
+                <input type="password" placeholder="请输入密码" name="user.password"  id="password"/>
+                <input type="checkbox" name="remember" id="cbox"/><label for="cbox">记住密码</label>
+                <input type="submit" value="登录" id="btn" onclick="loginClick(event)"/>
+        </div>
+    </div>
+</div>
 </body>
 </html>

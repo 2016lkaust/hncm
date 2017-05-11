@@ -6,8 +6,7 @@ body,.container-fluid,.table-wrap {
 .left-content {
 	height: 100%;
 	min-height: 100%;
-	padding: 10px;
-	background: #2e242b;
+	background: #34383C;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -17,28 +16,35 @@ body,.container-fluid,.table-wrap {
 }
 
 .left-content ul li {
+	width:100%;
 	list-style: none;
 	height: 50px;
 	line-height: 50px;
-	margin-top:10px;
 	text-align: center;
 }
 
 .left-content ul li.active {
-	border-left: 2px solid #b5b1b1;
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	border-right: 4px solid #24B9E3;
+	background: black;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
 
 .left-content ul li:hover {
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+border-right: 4px solid #24B9E3;
+	background: black;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
 
 .left-content ul li a {
 	font-size: 14px;
 	color: #3e8efe;
+	text-decoration: nono;
+	display:inline-block;
+	margin-top:10px;
 }
 .left-content .side-menu i{
 	display:block;
+	color:white;
 }
 .right-content {
 	height: 100%;

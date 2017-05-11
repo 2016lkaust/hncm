@@ -2,10 +2,10 @@ var queryList = '/hncm/user/company_count.action';
 count();
 function count() {
 	ajaxPost(queryList, {}, function(data) {
-		console.log(data);
+//		console.log(data);
 		$("#number").html(data.totalnum);
 		$("#money").html(data.totalmoney);
-		console.log(data.location);
+//		console.log(data.location);
 		var names = new Array();
 		var locationCounts = new Array();
 		var levels = new Array();
@@ -26,7 +26,7 @@ function count() {
 		var id2 = "fund";
 		initBar(id1, names, locationCounts);
 		initPie(id2, levels, fundCounts);
-		console.log(levels);
+//		console.log(levels);
 	});
 
 }

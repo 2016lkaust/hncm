@@ -5,9 +5,9 @@
 	<constant name="struts.devMode" value="true" />
 	
 	<package name="user" namespace="/user" extends="struts-default">
-		<action name="Login">
+		<!-- <action name="Login">
 			<result>/login.jsp</result>
-		</action>
+		</action> -->
 
 		<action name="user_*" method="{1}" class="userAction">
 			<result name="Success">/welcome_user.jsp</result>

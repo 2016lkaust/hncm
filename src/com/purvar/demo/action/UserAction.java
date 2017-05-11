@@ -65,7 +65,7 @@ public class UserAction extends BaseAction {
 	}
 
 	public void Login() throws Exception{
-		
+		System.out.println(account+password);
 		User user = new User();
 		user.setAccount(account);
 		user.setPwd(password);

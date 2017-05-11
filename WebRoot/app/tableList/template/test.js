@@ -5,7 +5,7 @@ function getAreas() {
 		"page" : curPage,
 		"rows" : pageSize
 	}, function(data) {
-		console.log(data);
+//		console.log(data);
 		for ( var i = 0; i < data.data.length; i++) {
 			console.log(data.data[i].name);
 		}
@@ -17,9 +17,9 @@ function getCityByCid() {
 		"page" : curPage,
 		"rows" : pageSize
 	}, function(data) {
-		console.log(data);
+//		console.log(data);
 		for ( var i = 0; i < data.data.length; i++) {
-			console.log(data.data[i].name);
+//			console.log(data.data[i].name);
 		}
 	});
 }

@@ -32,20 +32,19 @@
 			<div class="col-md-12 prn pln table-wrap">
 				<div class="col-md-1 prn pln left-content">
 					<ul class="side-menu">
-						<li class="active"><a href="javsscript:void(0);"
-							onclick="goToPage('home')"><i class="glyphicon glyphicon-home"></i><span>首页</span>
+						<li class="active" data-toggle="tooltip" data-placement="right" title="主页"><a href="javsscript:void(0);"
+							onclick="goToPage('home')"><i class="glyphicon glyphicon-home"></i></a>
+						</li>
+						<li data-toggle="tooltip" data-placement="right" title="企业"><a
+							onclick="goToPage('enterprise')"><i class="glyphicon glyphicon-list-alt"></i>
 						</a>
 						</li>
-						<li><a
-							onclick="goToPage('enterprise')"><i class="glyphicon glyphicon-list-alt"></i><span>企业</span>
+						<li data-toggle="tooltip" data-placement="right" title="分析"><a href="javsscript:void(0);"
+							onclick="goToPage('analyse')"><i class="glyphicon glyphicon-signal"></i>
 						</a>
 						</li>
-						<li><a href="javsscript:void(0);"
-							onclick="goToPage('analyse')"><i class="glyphicon glyphicon-signal"></i><span>分析</span>
-						</a>
-						</li>
-						<li><a href="javsscript:void(0);" onclick="goToPage('user')"><i
-								class="glyphicon glyphicon-user"></i><span>用户</span>
+						<li data-toggle="tooltip" data-placement="right" title="用户"><a href="javsscript:void(0);" onclick="goToPage('user')"><i
+								class="glyphicon glyphicon-user"></i>
 						</a>
 						</li>
 					</ul>
@@ -56,5 +55,8 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	$();
+	</script>
 </body>
 </html>

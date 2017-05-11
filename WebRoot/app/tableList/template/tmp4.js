@@ -39,7 +39,7 @@ function refreshTablePage(refreshPage, pageSize) {
 // 查询列表服务器返回处理
 function queryOrderCallBack(data) {
 	if (data.status == "1") {
-		console.log(data);
+//		console.log(data);
 		var panelHtml = '';
 		panelHtml = dealPage(panelHtml, data.data);
 

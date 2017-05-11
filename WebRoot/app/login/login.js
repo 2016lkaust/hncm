@@ -3,11 +3,12 @@ function loginClick(event) {
     account: $('#account').val(),
     password: $('#password').val(),
   };
+  console.log(params);
   $.ajax({
     url:'/hncm/user/user_Login.action',
     data: params,
     type:"post",
-		dateType:"text",
+		dateType:"json",
     success: function(data) {
     	console.log(data);
     	if("0000"==data){
@@ -18,7 +19,7 @@ function loginClick(event) {
 
     },
     error:function(error){
-      alert(error);
+     console.log(error);
     }
   });
 }
